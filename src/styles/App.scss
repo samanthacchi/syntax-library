@@ -1,0 +1,243 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina&display=swap');
+/* end of fonts */
+
+/* mixins */
+
+$pink: rgb(255, 182, 193);
+@mixin pink {
+  color: $pink;
+  -webkit-text-fill-color: $pink;
+}
+$lightgreen: rgb(144, 238, 144);
+@mixin green {
+  color: $lightgreen;
+  -webkit-text-fill-color: $lightgreen;
+}
+$yellow: rgb(255, 255, 0);
+@mixin yellow {
+  color: $yellow;
+  -webkit-text-fill-color: $yellow;
+}
+@mixin outlined {
+  -webkit-text-stroke-width: 0.5px;
+}
+
+@mixin pink-outline {
+  @include outlined;
+  -webkit-text-stroke-color: palevioletred;
+}
+
+@mixin green-outline {
+  @include outlined;
+  -webkit-text-stroke-color: forestgreen;
+}
+
+@mixin yellow-outline {
+  @include outlined;
+  -webkit-text-stroke-color: orange;
+}
+/* end of mixins */
+
+
+.App {
+  text-align: center;
+  margin: auto;
+}
+
+/* colors */
+.green-main {
+  @include green;
+  @include green-outline;
+}
+
+.pink-main {
+  @include pink;
+  @include pink-outline;
+}
+
+.yellow-main {
+  @include yellow;
+  @include yellow-outline;
+}
+
+/* end of colors */
+
+
+body {
+  background: white;
+}
+.header {
+  background: rgb(211, 211, 211);
+  min-height: 40vh;
+}
+.title-section {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -84px;
+  h1 {
+    font-family: 'Baloo Bhaina', monospace;
+    font-size: 13vw;
+    margin-botton: 5vh;
+  }
+}
+.color-toggle-section {
+  display: flex;
+  height: 30px;
+  justify-content: flex-end;
+  margin-top: 11px;
+  margin-right: 15px;
+  min-width: 121px;
+
+  .color-toggle-button {
+    margin-right: 9px;
+    pointer-events: none;
+  }
+}
+
+.search-section {
+  p {
+    color: #3f3f3f;
+    font-size: 3vw;
+    margin: 20px auto 5px auto;
+  }
+  button {
+    @extend button;
+    height: 3vh;
+  }
+}
+input {
+  border-radius: 15px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  padding: 3px;
+  width: 45vw;
+}
+.suggestion-line{
+  margin-bottom: 0;
+}
+p + br {
+  height: 2px;
+}
+
+/* buttons */
+
+button {
+  border-radius: 15px;
+}
+
+.language-buttons {
+
+  .language-button {
+    @extend button;
+    border: 2px solid;
+    font-weight: bold;
+    margin: 20px 5px;
+    height: 4vh;
+    width: 5vh;
+    font-size: 2vh;
+  }
+  .toggle-javascript {
+    background: $yellow;
+    border-color: orange;
+    color: darkorange;
+  }
+  .toggle-c-sharp {
+    background: $lightgreen;
+    border-bottom-color: forestgreen;
+    color: green;
+  }
+}
+/* end of buttons */
+
+.display-section {
+  padding: 0 6vh;
+  margin-bottom: 30px;
+  p {
+    font-size: 15px;
+    color: #3f3f3f;
+    margin-bottom: 5px;
+  }
+  .display-container {
+    min-height: 30vh;
+    max-height: 35vh;
+    overflow: auto;
+
+    .display-box {
+      background: whitesmoke;
+      //border: 1px solid #3f3f3f;
+      min-height: 100%;
+      max-width: 100%;
+      overflow: auto;
+      padding: 30px;
+    }
+  }
+}
+code {
+  font-family: monospace;
+  font-size: 3vw;
+}
+footer {
+  p {
+    font-size: 3vw;
+  }
+  background: rgb(211, 211, 211);
+  position: absolute;
+  bottom: 0;
+  margin-top: 20px;
+  width: 100%;
+  height: 5.5vh;
+}
+
+/* responsive */
+
+/* medium devices */
+
+@media only screen and (min-width: 768px) {
+
+  .title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -149px;
+    h1 {
+      font-family: 'Baloo Bhaina', monospace;
+      font-size: 13vw;
+    }
+  }
+
+  .search-section {
+    form {
+      input {
+        padding: 2vh;
+      }
+      .search-icon-to-text {
+        span {
+          display:none;
+        }
+      }
+      .search-icon-to-text:after {
+        display: block;
+        content: "Submit";
+      }
+    }
+  }
+  .display-section {
+    padding: 0 19vh;
+    margin-bottom: 30px;
+  }
+
+  code {
+    font-size: 2.5vw;
+  }
+}
+
+
+/* large devices */
+
+@media only screen and (min-width: 992px) {
+
+}

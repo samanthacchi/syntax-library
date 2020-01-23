@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Header from './Header';
 import LanguageToggle from './LanguageToggle';
 import DisplaySection from './DisplaySection';
 import Footer from "./Footer";
-import './App.css';
+import './styles/App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Header />
@@ -15,6 +14,4 @@ function App() {
       <Footer />
     </div>
   );
-}
-
-export default App;
+};
